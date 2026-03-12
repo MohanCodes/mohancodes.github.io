@@ -56,6 +56,56 @@
   .nav-links a { color: var(--dim); text-decoration: none; font-size: 12px; transition: color 0.15s; }
   .nav-links a:hover { color: var(--text); }
 
+  /* RESUME DROPDOWN */
+  .resume-dropdown {
+    position: relative;
+  }
+  .resume-trigger {
+    color: var(--dim);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.15s;
+    cursor: pointer;
+  }
+  .resume-trigger:hover {
+    color: var(--text);
+  }
+  .resume-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    min-width: 100px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 100;
+  }
+  .resume-dropdown:hover .resume-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .resume-menu a {
+    display: block;
+    padding: 8px 14px;
+    color: var(--dim);
+    text-decoration: none;
+    font-size: 11px;
+    transition: color 0.15s, background 0.15s;
+    border-bottom: 1px solid var(--rule);
+  }
+  .resume-menu a:last-child {
+    border-bottom: none;
+  }
+  .resume-menu a:hover {
+    color: var(--text);
+    background: var(--tag-bg);
+  }
+
   /* DARK MODE TOGGLE */
   .theme-toggle {
     background: none;
@@ -226,7 +276,13 @@
     <li><a href="#work">work</a></li>
     <li><a href="#about">about</a></li>
     <li><a href="#contact">contact</a></li>
-    <li><a href="https://atkuri.com/Mohan_Atkuri_Comp_Bio_Resume.pdf" target="_blank" download>resume</a></li>
+    <li class="resume-dropdown">
+      <span class="resume-trigger">resume</span>
+      <div class="resume-menu">
+        <a href="https://atkuri.com/Mohan_Atkuri_Comp_Bio_Resume.pdf" target="_blank">view</a>
+        <a href="https://atkuri.com/Mohan_Atkuri_Comp_Bio_Resume.pdf" download>download</a>
+      </div>
+    </li>
   </ul>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">night</button>
 </nav>
