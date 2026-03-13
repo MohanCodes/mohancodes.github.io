@@ -205,11 +205,32 @@
   .project { margin-bottom: 48px; }
   .project:last-child { margin-bottom: 0; }
   .project-meta {
-    display: flex; justify-content: space-between; align-items: baseline;
-    gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;   /* force single line */
+    min-width: 0;        /* allow text to shrink */
   }
-  .project-name { font-size: 13px; font-weight: 600; }
-  .project-link { font-size: 11px; color: var(--dim); text-decoration: none; }
+
+  .project-name {
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;             /* take remaining space */
+    min-width: 0;        /* allow ellipsis if needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project-link {
+    font-size: 11px;
+    color: var(--dim);
+    text-decoration: none;
+    white-space: nowrap; /* keep link in one piece */
+  }
+
   .project-link:hover { color: var(--text); }
   .project-story {
     font-size: 13px; color: var(--dim); line-height: 1.95;
@@ -369,8 +390,8 @@
 
   <div class="project">
     <div class="project-meta">
-      <span class="project-name">Microbiome analysis pipeline — Staley/Jahansouz Lab</span>
-      <a href="https://github.com/MohanCodes/network-pipline-adapted" class="project-link">↗ github<span class="live-dot"></span></a>
+      <span class="project-name">Microbiome visual analysis pipeline</span>
+      <a href="https://github.com/MohanCodes/network-pipline-adapted" class="project-link">↗ github <span class="live-dot"></span></a>
     </div>
     <p class="project-story">
       The lab I work in runs sequencing studies on canine cancer samples. The analysis pipeline for getting from raw reads to interpretable results used to involve a lot of manual steps. I built a set of R pipelines that tie together Bioconductor and mothur outputs to automate the 16S and shotgun workflows and generate the downstream statistical summaries.
@@ -383,7 +404,7 @@
   <div class="project">
     <div class="project-meta">
       <span class="project-name">MNClubConnect.com</span>
-      <a href="https://mnclubconnect.com" target="_blank" class="project-link">↗ live<span class="live-dot"></span></a>
+      <a href="https://mnclubconnect.com" target="_blank" class="project-link">↗ live <span class="live-dot"></span></a>
     </div>
     <p class="project-story">
       Finding clubs and organizations at Minnesota schools was difficult due to fragmented and outdated information across multiple sources. I built a platform to centralize this data with real-time search and filtering. It currently serves 3,500+ students. The system was designed and implemented end‑to‑end by me, including the database schema and CI/CD pipeline.
@@ -396,12 +417,12 @@
   <div class="project">
     <div class="project-meta">
       <span class="project-name">Donor receipt automation — Hindu Society of Minnesota</span>
-      <a href="https://www.hindutemplemn.org/post/the-fyrs-project" target="_blank" class="project-link">↗ read<span class="live-dot"></span></a>
+      <a href="https://www.hindutemplemn.org/post/the-fyrs-project" target="_blank" class="project-link">↗ read <span class="live-dot"></span></a>
     </div>
     <p class="project-story">
       My family's temple needed to send IRS-compliant donation statements to hundreds
       of donors every year. They were doing it by hand. I sat with the finance team,
-      learned what compliance required, and built a tool that generates
+      learned what compliance required, and built a desktop tool that generates
       and emails thousands of email receipts automatically. It's been running for two years.
       Probably the most directly useful thing I've built.
     </p>
